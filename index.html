@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traductor Base64</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+        }
+
+        h1 {
+            margin-top: 0;
+            color: #007bff;
+        }
+
+        .description {
+            color: #555;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        textarea {
+            width: calc(100% - 40px);
+            min-height: 100px;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: none;
+        }
+
+        .buttons {
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 8px 16px;
+            margin: 0 5px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Traductor Base64</h1>
+        <p class="description">Base64 es un método para convertir datos binarios en texto ASCII legible y viceversa. Es comúnmente utilizado para codificar datos binarios, como imágenes o archivos, en un formato que pueda ser enviado a través de canales que permiten solo texto, como el correo electrónico.</p>
+        <h2>¿Qué deseas hacer?</h2>
+        <textarea id="input" placeholder="Introduce el texto para codificar/descodificar"></textarea>
+        <div class="buttons">
+            <button onclick="codificar()">Codificar</button>
+            <button onclick="descodificar()">Descodificar</button>
+        </div>
+        <textarea id="output" placeholder="El resultado aparecerá aquí" readonly></textarea>
+    </div>
+    <script>
+        function codificar() {
+            var inputText = document.getElementById("input").value;
+            var encodedText = btoa(inputText);
+            document.getElementById("output").value = encodedText;
+        }
+
+        function descodificar() {
+            var inputText = document.getElementById("input").value;
+            var decodedText = atob(inputText);
+            document.getElementById("output").value = decodedText;
+        }
+    </script>
+</body>
+</html>
